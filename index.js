@@ -158,7 +158,7 @@ function init(){
                           
                           particlePositions.push(i);
                           particlePositions.push(1);
-                          particlePositiions.push(1);
+                          particlePositions.push(1);
 //                     particlePositions.push(obj.data[i].killer_position_x*0.01);
                     
 //                     particlePositions.push(-obj.data[i].killer_position_y*0.01);
