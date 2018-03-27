@@ -125,7 +125,6 @@ function init(){
         camera.projectionMatrix.copy(arContext.getProjectionMatrix());
         console.log("here we are");
     
-});
 
     particleCount = 195464;
 
@@ -259,6 +258,7 @@ function init(){
   // render();   
 
 
+});
 
     
 }   
