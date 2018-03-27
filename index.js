@@ -81,21 +81,7 @@ function init(){
 
 
     /* handle */
-    arSource.init(function(){
-        arSource.onResize();
-        arSource.copySizeTo(renderer.domElement);
 
-        if(arContext.arController !== null) arSource.copySizeTo(arContext.arController.canvas);
-
-    });
-
-    arContext.init(function onCompleted(){
-        
-        camera.projectionMatrix.copy(arContext.getProjectionMatrix());
-
-    
-
-    
     
      loader.load(
 
@@ -206,6 +192,22 @@ function init(){
                     scene.add(particles);
                     scene.add(line);
 
+                        arSource.init(function(){
+                          arSource.onResize();
+                          arSource.copySizeTo(renderer.domElement);
+
+                          if(arContext.arController !== null) arSource.copySizeTo(arContext.arController.canvas);
+
+                             });
+
+    arContext.init(function onCompleted(){
+        
+        camera.projectionMatrix.copy(arContext.getProjectionMatrix());
+
+    
+});
+    
+
                     render();
 
                 
@@ -251,7 +253,7 @@ function init(){
                     }
             );
 
-});
+
 // trythis
 //     mesh = new THREE.Mesh(new THREE.BoxGeometry(1,1,1), new THREE.MeshBasicMaterial({
 //         color: 0xFF00FF,
