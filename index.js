@@ -52,13 +52,13 @@ function init(){
 
     arMarker[0] = new THREEx.ArMarkerControls(arContext, camera, {
         type : 'pattern',
-        patternUrl : './assets/data/petras_iot.hiro',
+        patternUrl : './assets/data/petras_iot.patt',
         changeMatrixMode: 'cameraTransformMatrix'
     });
 
     arMarker[1] = new THREEx.ArMarkerControls(arContext, camera, {
         type : 'pattern',
-        patternUrl : './assets/data/petras_iot.patt',
+        patternUrl : './assets/data/makrer_codepen.patt',
         changeMatrixMode: 'cameraTransformMatrix'
     });
 
