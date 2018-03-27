@@ -76,10 +76,10 @@ function init(){
         fogHex = 0x000000; /* As black as your heart.   */
         fogDensity = 0.0001; /* So not terribly dense?  */
 
-        //camera = new THREE.PerspectiveCamera(fieldOfView, aspectRatio, nearPlane, farPlane);
+//         camera = new THREE.PerspectiveCamera(fieldOfView, aspectRatio, nearPlane, farPlane);
         
         // camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 50000 );
-        // camera.position.set( -50.70311858236377, -3489.2936443600024, 1221.0662204047978 );
+         camera.position.set( -50.70311858236377, -3489.2936443600024, 1221.0662204047978 );
 //         camera= new THREE.Camera();
 
     renderer.setClearColor(0x000000, 0);
