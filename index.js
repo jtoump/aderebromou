@@ -154,11 +154,11 @@ function init(){
                     // vertex.y = -obj.data[i].killer_position_y;
                     // vertex.z = obj.data[i].killer_placement*10;
                     //console.log(vertex.z);
-                    particlePositions.push(obj.data[i].killer_position_x);
+                    particlePositions.push(obj.data[i].killer_position_x*0.01);
                     
-                    particlePositions.push(-obj.data[i].killer_position_y);
+                    particlePositions.push(-obj.data[i].killer_position_y*0.01);
                     
-                    particlePositions.push(obj.data[i].heihgtxy*0.01);
+                    particlePositions.push(obj.data[i].heihgtxy*0.001);
                     //linegeometry.vertices.push(new THREE.Vector3(obj.data[i].killer_position_x,-obj.data[i].killer_position_y,obj.data[i].killer_placement*10));
                     
                     //geometry.colors.push(new THREE.Color(obj.data[i].ppl_killed*0.1, obj.data[i].killer_placement*0.01, 0));
