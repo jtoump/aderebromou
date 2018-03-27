@@ -138,13 +138,13 @@ function init(){
      loader.load(
 
                 // resource URL
-                "./models/json/smaller.json",
+                "models/json/smaller.json",
 
                 // onLoad callback
                 function ( obj2 ) {
 
                     var obj = JSON.parse(obj2)
-                    console.log(obj.data[i].killer_position_x);
+                    console.log(obj.data[0].killer_position_x);
 
                     //geometry = new THREE.Geometry(); /*   NO ONE SAID ANYTHING ABOUT MATH! UGH!   */
                     geometry = new THREE.BufferGeometry();
