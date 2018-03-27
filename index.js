@@ -58,7 +58,7 @@ function init(){
 
     arMarker[1] = new THREEx.ArMarkerControls(arContext, camera, {
         type : 'pattern',
-        patternUrl : './assets/data/makrer_codepen.patt',
+        patternUrl : './assets/data/marker_codepen.patt',
         changeMatrixMode: 'cameraTransformMatrix'
     });
 
