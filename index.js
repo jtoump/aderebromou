@@ -78,8 +78,9 @@ function init(){
 
         //camera = new THREE.PerspectiveCamera(fieldOfView, aspectRatio, nearPlane, farPlane);
         
-        camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 50000 );
-        camera.position.set( -50.70311858236377, -3489.2936443600024, 1221.0662204047978 );
+        // camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 50000 );
+        // camera.position.set( -50.70311858236377, -3489.2936443600024, 1221.0662204047978 );
+        camera= new THREE.Camera();
 
     renderer.setClearColor(0x000000, 0);
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -125,7 +126,6 @@ function init(){
         camera.projectionMatrix.copy(arContext.getProjectionMatrix());
         console.log("here we are");
     
-});
 
     particleCount = 195464;
 
@@ -227,7 +227,7 @@ function init(){
                 // }
                     
                 container.appendChild(renderer.domElement); /* Let's add all this crazy junk to the page.   */
-                animate();
+                render();
                     // var material = materials[ 0 ];
                     // var object = new THREE.Mesh( geometry, material );
                     // scene.add( object );
@@ -242,6 +242,7 @@ function init(){
                 }
             );
 
+});
 
 // trythis
 //     mesh = new THREE.Mesh(new THREE.BoxGeometry(1,1,1), new THREE.MeshBasicMaterial({
@@ -263,13 +264,6 @@ function init(){
     
 }   
 
-
-
-function animate(){
-
-    requestAnimationFrame(animate);
-    render();
-}
 
 
 
