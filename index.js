@@ -135,63 +135,40 @@ function init(){
     /* handle */
 
     
-     loader.load(
-
+        loader.load(
                 // resource URL
                 "models/json/smaller.json",
-
                 // onLoad callback
                 function ( obj2 ) {
-
                     var obj = JSON.parse(obj2)
-                    console.log(obj.data[0].killer_position_x);
-
+                    console.log(obj.data.length);
                     //geometry = new THREE.Geometry(); /*   NO ONE SAID ANYTHING ABOUT MATH! UGH!   */
                     geometry = new THREE.BufferGeometry();
                     
                     particlePositions = [];
                     var colors = [];
                     var sizes = [];
-
-
-
-                    for (i = 0; i <195464 ; i++) {
-
+                      for (i = 0; i < particleCount; i++) {
                     // var vertex = new THREE.Vector3();
                     // vertex.x = obj.data[i].killer_position_x;
                     // vertex.y = -obj.data[i].killer_position_y;
                     // vertex.z = obj.data[i].killer_placement*10;
                     //console.log(vertex.z);
-
                     particlePositions.push(obj.data[i].killer_position_x);
                     
                     particlePositions.push(-obj.data[i].killer_position_y);
                     
                     particlePositions.push(obj.data[i].heihgtxy*0.01);
-
                     //linegeometry.vertices.push(new THREE.Vector3(obj.data[i].killer_position_x,-obj.data[i].killer_position_y,obj.data[i].killer_placement*10));
-
-
-
                     
                     //geometry.colors.push(new THREE.Color(obj.data[i].ppl_killed*0.1, obj.data[i].killer_placement*0.01, 0));
                     color= new THREE.Color(obj.data[i].ppl_killed*0.1, obj.data[i].killer_placement*0.01, 0);
-
                     colors.push(color.r,color.g,color.b);
-
                     //geometry.vertices.push(vertex);
-
                     }
-
-
-
                     geometry.addAttribute( 'position', new THREE.Float32BufferAttribute( particlePositions, 3 ).setDynamic(true));
-
                     geometry.addAttribute( 'color', new THREE.Float32BufferAttribute( colors, 3 ) );
-
-
                
-
                       parameters = [
                             [
                                 [1, 1, 0.5], 0.5
@@ -210,89 +187,59 @@ function init(){
                             ]
                         ];
                  parameterCount = parameters.length;
-
         /*  I told you to take those motion sickness pills.
     Clean that vommit up, we're going again!    */
-
-
-
-                    var psMat = new THREE.PointsMaterial();
-                    psMat.vertexColors = true;
-                    psMat.depthTest=false;
-                    psMat.opacity=0.5;
-
-                    var material = new THREE.LineBasicMaterial({
-                            color: 0x0000ff, opacity:0.1,transparent:true
-                    });
-
+                var psMat = new THREE.PointsMaterial();
+                psMat.vertexColors = true;
+                psMat.depthTest=false;
+                psMat.opacity=0.5;
+                var material = new THREE.LineBasicMaterial({
+                        color: 0x0000ff, opacity:0.1,transparent:true
+                });
                 
-                    geometry.computeBoundingBox();
-                        
-                    geometry.center();
-
-                    linegeometry.computeBoundingBox();
-                        
-                    linegeometry.center();
-
-                    particles = new THREE.Points(geometry, psMat);
-                    var line = new THREE.Line( linegeometry , material );
-
-
-
+                geometry.computeBoundingBox();
+                    
+                geometry.center();
+                linegeometry.computeBoundingBox();
+                    
+                linegeometry.center();
+                particles = new THREE.Points(geometry, psMat);
+                var line = new THREE.Line( linegeometry , material );
                 //group.add(particles);
-                    //particles.sizeAttenuation = true;
-                    scene.add(particles);
-                    scene.add(line);
-
-
-
-
-
-    
-
-                    render();
-
+                //particles.sizeAttenuation = true;
+                scene.add(particles);
+                scene.add(line);
                 
-
                 // for (i = 0; i < parameterCount; i++) {
-
                 //     //olor = parameters[i][0];
                 //     size = parameters[i][1];
-
                 //     materials[i] = new THREE.PointsMaterial({
                 //         size: size
                 //     });
-
                 //     particles = new THREE.Points(geometry, materials[i]);
                 //     // particles.position.x=0;
                 //     // particles.position.y=0;
                 //     // particles.position.z=0;
-
                 //     //particles.rotation.x = Math.random() * 6;
                 //     //particles.rotation.y = Math.random() * 6;
                 //     //particles.rotation.z = Math.random() * 6;
-
                 //     scene.add(particles);
                 // }
-
-                
-                    // container.appendChild(renderer.domElement); /* Let's add all this crazy junk to the page.   */
-
-
-                        // var material = materials[ 0 ];
-                        // var object = new THREE.Mesh( geometry, material );
-                        // scene.add( object );
+                    
+                container.appendChild(renderer.domElement); /* Let's add all this crazy junk to the page.   */
+                animate();
+                    // var material = materials[ 0 ];
+                    // var object = new THREE.Mesh( geometry, material );
+                    // scene.add( object );
                 },
-
-                    // onProgress callback
-                    function ( xhr ) {
-                        console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
-                    },
-
-                    // onError callback
-                    function( err ) {
-                        console.log( 'An error happened' );
-                    }
+                // onProgress callback
+                function ( xhr ) {
+                    console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+                },
+                // onError callback
+                function( err ) {
+                    console.log( 'An error happened' );
+                }
             );
 
 
@@ -317,6 +264,12 @@ function init(){
 }   
 
 
+
+function animate(){
+
+    requestAnimationFrame(animate);
+    render();
+}
 
 
 
