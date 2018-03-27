@@ -217,11 +217,11 @@ function init(){
                 scene.add(particles);
                 scene.add(line);
                     
-                var geometry1 = new THREE.BoxBufferGeometry( 1, 1, 1 );
-                var material1 = new THREE.MeshBasicMaterial( { color: 0xffff00 } );
-                var mesh1 = new THREE.Mesh( geometry1, material1 );
-                mesh1.position = new THREE.Vector3( 0, -100, -100 );
-                scene.add( mesh1 );
+//                 var geometry1 = new THREE.BoxBufferGeometry( 1, 1, 1 );
+//                 var material1 = new THREE.MeshBasicMaterial( { color: 0xffff00 } );
+//                 var mesh1 = new THREE.Mesh( geometry1, material1 );
+//                 mesh1.position = new THREE.Vector3( 0, -100, -100 );
+//                 scene.add( mesh1 );
                 
                 // for (i = 0; i < parameterCount; i++) {
                 //     //olor = parameters[i][0];
