@@ -81,7 +81,7 @@ function init(){
 
 
 
-                    for (i = 0; i < particleCount; i++) {
+                    for (i = 0; i < obj.data.length; i++) {
 
                     // var vertex = new THREE.Vector3();
                     // vertex.x = obj.data[i].killer_position_x;
@@ -174,42 +174,6 @@ function init(){
 
 
 
-
-                        arSource = new THREEx.ArToolkitSource({
-                            sourceType : 'webcam',
-                        });
-
-                        arContext = new THREEx.ArToolkitContext({
-                            cameraParametersUrl: './assets/data/camera_para.dat',
-                            detectionMode: 'mono',
-                        });
-
-                        arMarker[0] = new THREEx.ArMarkerControls(arContext, camera, {
-                            type : 'pattern',
-                            patternUrl : './assets/data/petras_iot.patt',
-                            changeMatrixMode: 'cameraTransformMatrix'
-                        });
-
-                        arMarker[1] = new THREEx.ArMarkerControls(arContext, camera, {
-                            type : 'pattern',
-                            patternUrl : './assets/data/marker_codepen.patt',
-                            changeMatrixMode: 'cameraTransformMatrix'
-                        });
-
-                        arSource.init(function(){
-                          arSource.onResize();
-                          arSource.copySizeTo(renderer.domElement);
-
-                          if(arContext.arController !== null) arSource.copySizeTo(arContext.arController.canvas);
-
-                             });
-
-    arContext.init(function onCompleted(){
-        
-        camera.projectionMatrix.copy(arContext.getProjectionMatrix());
-
-    
-});
     
 
                     render();
@@ -272,6 +236,44 @@ function init(){
 
 
   // render();   
+
+  
+
+                        arSource = new THREEx.ArToolkitSource({
+                            sourceType : 'webcam',
+                        });
+
+                        arContext = new THREEx.ArToolkitContext({
+                            cameraParametersUrl: './assets/data/camera_para.dat',
+                            detectionMode: 'mono',
+                        });
+
+                        arMarker[0] = new THREEx.ArMarkerControls(arContext, camera, {
+                            type : 'pattern',
+                            patternUrl : './assets/data/petras_iot.patt',
+                            changeMatrixMode: 'cameraTransformMatrix'
+                        });
+
+                        arMarker[1] = new THREEx.ArMarkerControls(arContext, camera, {
+                            type : 'pattern',
+                            patternUrl : './assets/data/marker_codepen.patt',
+                            changeMatrixMode: 'cameraTransformMatrix'
+                        });
+
+                        arSource.init(function(){
+                          arSource.onResize();
+                          arSource.copySizeTo(renderer.domElement);
+
+                          if(arContext.arController !== null) arSource.copySizeTo(arContext.arController.canvas);
+
+                             });
+
+    arContext.init(function onCompleted(){
+        
+        camera.projectionMatrix.copy(arContext.getProjectionMatrix());
+
+    
+});
 
     
 }   
