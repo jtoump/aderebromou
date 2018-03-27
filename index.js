@@ -29,7 +29,7 @@ function init(){
     scene.add(camera);
     scene.visible = false;
 
-
+// trythis
     mesh = new THREE.Mesh(new THREE.BoxGeometry(1,1,1), new THREE.MeshBasicMaterial({
         color: 0xFF00FF,
         transparent: true,
