@@ -53,29 +53,7 @@ function init(){
     scene.add(camera);
     scene.visible = false;
 
-
-
-    arSource = new THREEx.ArToolkitSource({
-        sourceType : 'webcam',
-    });
-
-    arContext = new THREEx.ArToolkitContext({
-        cameraParametersUrl: './assets/data/camera_para.dat',
-        detectionMode: 'mono',
-    });
-
-    arMarker[0] = new THREEx.ArMarkerControls(arContext, camera, {
-        type : 'pattern',
-        patternUrl : './assets/data/petras_iot.patt',
-        changeMatrixMode: 'cameraTransformMatrix'
-    });
-
-    arMarker[1] = new THREEx.ArMarkerControls(arContext, camera, {
-        type : 'pattern',
-        patternUrl : './assets/data/marker_codepen.patt',
-        changeMatrixMode: 'cameraTransformMatrix'
-    });
-
+    particleCount = 195464;
 
 
 
@@ -191,6 +169,32 @@ function init(){
                     //particles.sizeAttenuation = true;
                     scene.add(particles);
                     scene.add(line);
+
+
+
+
+
+
+                        arSource = new THREEx.ArToolkitSource({
+                            sourceType : 'webcam',
+                        });
+
+                        arContext = new THREEx.ArToolkitContext({
+                            cameraParametersUrl: './assets/data/camera_para.dat',
+                            detectionMode: 'mono',
+                        });
+
+                        arMarker[0] = new THREEx.ArMarkerControls(arContext, camera, {
+                            type : 'pattern',
+                            patternUrl : './assets/data/petras_iot.patt',
+                            changeMatrixMode: 'cameraTransformMatrix'
+                        });
+
+                        arMarker[1] = new THREEx.ArMarkerControls(arContext, camera, {
+                            type : 'pattern',
+                            patternUrl : './assets/data/marker_codepen.patt',
+                            changeMatrixMode: 'cameraTransformMatrix'
+                        });
 
                         arSource.init(function(){
                           arSource.onResize();
