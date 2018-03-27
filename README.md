@@ -1,6 +1,6 @@
 ## simple-ar.js
 
-https://jtoump.github.io/simple_ar/
+https://jtoump.github.io/simple/
 
 ![Alt text](assets/ar.gif)
 
