@@ -159,9 +159,9 @@ function init(){
 //                           particlePositions.push(i);
 //                           particlePositions.push(1);
 //                           particlePositions.push(1);
-                    particlePositions.push(obj.data[i].killer_position_x*0.01);
+                    particlePositions.push(obj.data[i].killer_position_x);
                     
-                    particlePositions.push(-obj.data[i].killer_position_y*0.01);
+                    particlePositions.push(-obj.data[i].killer_position_y);
                     
                     particlePositions.push(obj.data[i].heihgtxy*0.01);
                     //linegeometry.vertices.push(new THREE.Vector3(obj.data[i].killer_position_x,-obj.data[i].killer_position_y,obj.data[i].killer_placement*10));
@@ -198,7 +198,7 @@ function init(){
                 psMat.vertexColors = true;
                 psMat.depthTest=false;
                 psMat.opacity=0.5;
-                psMat.size =0.01;
+                psMat.size =0.5;
                
                 var material = new THREE.LineBasicMaterial({
                         color: 0x0000ff, opacity:0.1,transparent:true
@@ -220,7 +220,7 @@ function init(){
                 var geometry1 = new THREE.BoxBufferGeometry( 1, 1, 1 );
                 var material1 = new THREE.MeshBasicMaterial( { color: 0xffff00 } );
                 var mesh1 = new THREE.Mesh( geometry1, material1 );
-                mesh1.position = new THREE.Vector3( 0, -10, 0 );
+                mesh1.position = new THREE.Vector3( 0, -100, -100 );
                 scene.add( mesh1 );
                 
                 // for (i = 0; i < parameterCount; i++) {
