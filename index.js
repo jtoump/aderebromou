@@ -44,7 +44,42 @@ function init(){
 
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     scene = new THREE.Scene();
-    camera = new THREE.Camera();
+    // camera = new THREE.Camera();
+
+    HEIGHT = window.innerHeight;
+        WIDTH = window.innerWidth;
+        windowHalfX = WIDTH / 2;
+        windowHalfY = HEIGHT / 2;
+
+        fieldOfView = 75;
+        aspectRatio = WIDTH / HEIGHT;
+        nearPlane = 1;
+        farPlane = 10000;
+
+
+        // renderer = new THREE.WebGLRenderer(); /* Rendererererers particles.  */
+        // renderer.setPixelRatio(window.devicePixelRatio); /*  Probably 1; unless you're fancy.    */
+        // renderer.setSize(WIDTH, HEIGHT); /*  Full screen baby Wooooo!    */
+
+        /*  fieldOfView — Camera frustum vertical field of view.
+    aspectRatio — Camera frustum aspect ratio.
+    nearPlane — Camera frustum near plane.
+    farPlane — Camera frustum far plane.
+
+    - https://threejs.org/docs/#Reference/Cameras/PerspectiveCamera
+
+    In geometry, a frustum (plural: frusta or frustums)
+    is the portion of a solid (normally a cone or pyramid)
+    that lies between two parallel planes cutting it. - wikipedia.      */
+
+        cameraZ = 1000; /*  So, 1000? Yes! move on! */
+        fogHex = 0x000000; /* As black as your heart.   */
+        fogDensity = 0.0001; /* So not terribly dense?  */
+
+        //camera = new THREE.PerspectiveCamera(fieldOfView, aspectRatio, nearPlane, farPlane);
+        
+        camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 50000 );
+        camera.position.set( -50.70311858236377, -3489.2936443600024, 1221.0662204047978 );
 
     renderer.setClearColor(0x000000, 0);
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -81,7 +116,7 @@ function init(){
 
 
 
-                    for (i = 0; i < obj.data.length; i++) {
+                    for (i = 0; i < particleCount; i++) {
 
                     // var vertex = new THREE.Vector3();
                     // vertex.x = obj.data[i].killer_position_x;
@@ -237,7 +272,7 @@ function init(){
 
   // render();   
 
-  
+
 
                         arSource = new THREEx.ArToolkitSource({
                             sourceType : 'webcam',
@@ -271,7 +306,7 @@ function init(){
     arContext.init(function onCompleted(){
         
         camera.projectionMatrix.copy(arContext.getProjectionMatrix());
-
+        console.log("here we are");
     
 });
 
