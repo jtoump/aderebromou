@@ -198,6 +198,8 @@ function init(){
                 psMat.vertexColors = true;
                 psMat.depthTest=false;
                 psMat.opacity=0.5;
+                psMat.size =0.01;
+               
                 var material = new THREE.LineBasicMaterial({
                         color: 0x0000ff, opacity:0.1,transparent:true
                 });
