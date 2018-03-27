@@ -44,7 +44,7 @@ function init(){
 
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     scene = new THREE.Scene();
-    // camera = new THREE.Camera();
+    camera = new THREE.Camera();
 
     HEIGHT = window.innerHeight;
         WIDTH = window.innerWidth;
@@ -80,7 +80,7 @@ function init(){
         
         // camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 50000 );
         // camera.position.set( -50.70311858236377, -3489.2936443600024, 1221.0662204047978 );
-        camera= new THREE.Camera();
+//         camera= new THREE.Camera();
 
     renderer.setClearColor(0x000000, 0);
     renderer.setSize(window.innerWidth, window.innerHeight);
