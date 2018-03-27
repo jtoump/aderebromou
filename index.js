@@ -159,11 +159,11 @@ function init(){
 //                           particlePositions.push(i);
 //                           particlePositions.push(1);
 //                           particlePositions.push(1);
-                    particlePositions.push(obj.data[i].killer_position_x*0.004);
+                    particlePositions.push(obj.data[i].killer_position_x*0.0001);
                     
-                    particlePositions.push(-obj.data[i].killer_position_y*0.004);
+                    particlePositions.push(-obj.data[i].killer_position_y*0.0001);
                     
-                    particlePositions.push(obj.data[i].heihgtxy*0.01);
+                    particlePositions.push(obj.data[i].heihgtxy*0.00001);
                     //linegeometry.vertices.push(new THREE.Vector3(obj.data[i].killer_position_x,-obj.data[i].killer_position_y,obj.data[i].killer_placement*10));
                     
                     //geometry.colors.push(new THREE.Color(obj.data[i].ppl_killed*0.1, obj.data[i].killer_placement*0.01, 0));
@@ -198,7 +198,7 @@ function init(){
                 psMat.vertexColors = true;
                 psMat.depthTest=false;
                 psMat.opacity=0.5;
-                psMat.size =0.5;
+                psMat.size =0.2;
                
                 var material = new THREE.LineBasicMaterial({
                         color: 0x0000ff, opacity:0.1,transparent:true
